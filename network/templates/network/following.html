@@ -1,0 +1,30 @@
+{% extends "network/layout.html"%}
+{% load static %}
+
+{% block body %}
+{% block script %}
+<script type="text/javascript" src="{% static 'network/like.js' %}"></script>
+{% endblock %}
+    {% if empty %}
+        <h3> No post </h3>
+    {% endif %}
+    {% for post in posts %}
+    <div class="border border-secondary mt-2" style="padding:20px; margin: 20px;">
+        <div style="font-weight: bold;"><a href="{% url 'profile' post.user.id %}">{{post.user}} </a></div>
+        <div class="post">{{post.post_content}}</div>
+        <div>{{post.time}}</div>
+        <br>
+        <button id="like-count-{{post.id}}" style="background-color: white;"  value="like" onclick="like('{{ post.id }}')"> Like</button> 
+        
+        <div id="like-count-{{post.id}}">Likes:{{post.likes}} </div>
+        <br>
+    </div>
+    {% endfor %}
+    {% if posts.has_next %}
+    <a href="?page={{ posts.next_page_number }}">next</a>
+{% endif %}
+
+{% if posts.has_previous %}
+    <a href="?page={{ posts.previous_page_number }}">previous</a>
+{% endif %}
+{% endblock %}
