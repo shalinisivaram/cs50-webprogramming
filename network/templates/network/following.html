@@ -14,7 +14,7 @@
         <div class="post">{{post.post_content}}</div>
         <div>{{post.time}}</div>
         <br>
-        <button id="like-count-{{post.id}}" style="background-color: white;"  value="like" onclick="like('{{ post.id }}')"> Like</button> 
+        <button id="like-btn-{{post.id}}" style="background-color: white;"  value="like" onclick="like('{{ post.id }}')"> Like</button> 
         
         <div id="like-count-{{post.id}}">Likes:{{post.likes}} </div>
         <br>
