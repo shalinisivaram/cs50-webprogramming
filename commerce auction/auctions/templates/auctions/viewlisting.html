@@ -1,0 +1,107 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if message%}
+        <h3>{{message}}</h3>
+    {% endif %}
+
+    <div class="jumbotron text-center" style="padding: 3% 10%;">
+
+        <br>
+    {% if listing.closed%}
+        <h4>This listing is no longer available</h4>
+    {% endif %}
+        <br>
+        <h1><strong>{{listing.title}}</strong></h1> <br>
+        <br>
+        <img src="{{listing.image.url}}" alt="indeximage" style="height: 350px;" class="embed-responsive"> <br> <br> <br> 
+        <p class="lead" ><strong>Description : </strong> {{listing.description}}</p>  
+        <p class="lead" strong>Category : </strong>{{listing.category}}</p>
+        <p class="lead" ><strong>Current Bid Price : </strong>{{listing.bid}}$</p>
+        <p class="lead" ><strong>Seller : </strong>{{listing.owner}}</p>
+        <p class="lead" ><strong>Created on : </strong>{{listing.time}}</p>
+        <br>
+
+        {% if listing.closed %}
+        <li><strong>Winner: </strong>{{ listing.bids.last.user.username }}</li>
+        {% endif %}
+
+        {% if added %}
+ 
+            <a href="{% url 'addtowatchlist' listing.id %}" class="btn btn-danger btn-lg" name="remove">Remove from Watchlist</a>
+        {% else %}
+
+            <a href="{% url 'addtowatchlist' listing.id %}" class="btn btn-success btn-lg" name="addto">Add to Watchlist</a>
+        {% endif %}
+        <br> <br>
+        {% if user.username != listing.owner %}
+            <p class="lead" ><strong>Place your Bid : </strong></p>
+            <form action="{% url 'view_listing' listing.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="newbid" placeholder="Your Bid">
+                </div>
+                <p ><input class="btn btn-primary" type="submit" value="Submit"></p>
+            </form>
+        {% endif %}
+        
+
+        <br> 
+
+        <!-- Displaying comments-->
+        <div class="jumbotron text-center">
+
+            <h2 class="card-title h2">COMMENTS</h2>
+       
+        
+            {% if comments %}
+
+                {% for comment in comments %}
+                    <br>
+
+                    <div class="card text-left">
+                    <h5 class="card-header h5">{{comment.user}}</h5>
+                    <div class="card-body">
+
+                        <p class="lead">{{comment.comment}}</p>
+                        <p class="card-text">{{comment.time}}</p>
+                    </div>
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                <div class="text-center">
+                   
+                    <br> <br> 
+                    <p class="lead">No Comments Found</p> 
+                </div>
+            {% endif %}
+        </div>
+    
+        
+        {% if user.username != listing.owner %}
+          
+            <div class="jumbotron text-center">
+
+              
+                <h2 class="card-title h2">ADD COMMENT</h2>
+                
+                <form action="{% url 'addcomment' listing.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <textarea class="form-control" name="comment" rows="4" placeholder="Your Comment"></textarea>
+                    </div>
+                    <p ><input class="btn btn-primary" type="submit" value="Submit"></p>
+                </form>
+            </div>
+      
+        {% endif %}
+
+        
+
+        {% if user.username == listing.owner %}
+            <a href="{% url 'closebid' listing.id %}" class="btn btn-info btn-lg"> Close Bid </a>
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class= "h1"> YOUR APPOINMENT</div>
+
+<table class="appoinment">
+    <thead>
+        <th> CustomerName </th>
+        <th> MobileNumber </th>
+        <th> Gender </th>
+        <th> Appoinment Date </th>
+        <th> Appoinment Time </th>
+        <th> Service </th>
+
+    </thead>
+
+    <tbody>
+
+        {% for user in users %}
+
+        <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.mobilenumber}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.Date}}</td>
+            <td>{{user.time}}</td>
+            <td>{{user.service}}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <br>
+    {% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+    <div class="jumbotron text-center">
+        <h2 class="card-title h2">WIN LISTINGS</h2>
+        {% if empty %} 
+                <h4>You have not won any listing</h4>
+        {% endif %}
+    </div>
+        <div class="text-center">
+            <h3> Lisitngs you won</h3>
+        </div>
+        {% for product in products %}
+        <br> 
+        <div class="card card-cascade" >
+        <div class="card-body card-body-cascade text-center">
+        {% if product.winner == request.user.username %}
+                <h4 class="card-title"><strong>{{product.title}}</strong></h4>
+                <p class="font-weight-bold">CONGRATULATIONS!!! You Won {{product.title}} for {{product.price}}<br> </p>
+        {% endif %}
+        {% endfor %}
+    </div>
+     </div>
+  
+{% endblock %}

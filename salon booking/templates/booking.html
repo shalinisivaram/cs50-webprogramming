@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+
+<div class= "h1"> BOOK  YOUR SALON  APPOINMENT</div>
+
+    <form action="/booking" method="post">
+
+        <div class="city">
+            <p> Select salon </p>
+<select name="salon">
+    <option disabled selecte value> salon </option>
+    {% for salon in salons %}
+
+
+
+    <option > {{salon['salonname']}} </option>
+    <option disabled selected value> {{salon['address']}} </option>
+
+    {% endfor %}
+
+
+
+
+
+
+
+
+</select>
+
+</div>
+
+      <div class="gender">
+        <p> Please select your gender </p>
+
+        <input type="radio" name="gender"  value="male">
+        <lable for ="male"> male </lable>
+
+
+        <input type="radio" name="gender"  value="female">
+        <lable for ="female"> female </lable> <br>
+        </div>
+
+              <div class="multipleSelection">
+            <div class="selectBox"
+                onclick="showcheckboxes()">
+                <select>
+                    <option>Select services</option>
+                </select>
+                    <div class="overSelect"></div>
+            </div>
+
+        <div id="checkboxes" class="checkbox">
+            <label><input type="checkbox" name="service" value="haircut"> Haircut</label>
+
+            <label> <input type="checkbox" name="service" value="hairspa"> Hairspa</label>
+
+            <label><input type="checkbox" name="service" value="facial"> Facial</label>
+
+            <label><input type="checkbox" name="service" value="detan"> detan</label>
+
+        </div>
+
+        </div>
+
+
+        <div class="date">
+            <p> Choose your DATE </p>
+            <input type="date" name="date">
+        </div>
+
+        <div class="time">
+            <p> choose your time </p>
+            <input type="radio" name="time" value="10.00 AM">
+            <label> 10.00 AM </label>
+
+            <input type="radio" name="time" value="11.00 AM">
+            <label> 11.00 AM </label> <br>
+
+            <input type="radio" name="time" value="12.00 PM">
+            <label> 12.00 PM </label>
+
+            <input type="radio" name="time" value="1.00 PM">
+            <label > 01.00 PM </label> <br>
+
+            <input type="radio" name="time" value="2.00 PM">
+            <label > 02.00 PM </label>
+
+            <input type="radio" name="time" value="3.00 PM">
+            <label> 03.00 PM </label> <br>
+
+            <input type="radio" name="time" value="4.00 PM">
+            <label> 04.00 PM </label>
+
+            <input type="radio" name="time" value="5.00 PM">
+            <label> 05.00 PM </label> <br>
+
+            <input type="radio" name="time" value="6.00 PM">
+            <label > 06.00 PM </label>
+
+            <input type="radio" name="time" value='7.00 PM'>
+            <label > 07.00 PM </label>
+
+            </div>
+
+            <div class="customerinfo" name="info">
+                <input name="name" placeholder="Name" type="text">
+                <input name="tel"  placeholder="Phone number" type="text"> <br>
+                <button class="submit"> SUBMIT </button>
+            </div>
+
+    </form>
+
+<script>
+    var show = true;
+    function showcheckboxes()
+    {
+        var checkboxes=document.getElementById("checkboxes")
+        if (show) {
+
+            checkboxes.style.display = "block";
+            show=false;
+
+        }
+
+        else{
+
+            checkboxes.style.display = "None";
+            show=true;
+
+        }
+    }
+
+</script>
+
+{% endblock %}

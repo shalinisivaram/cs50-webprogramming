@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+                    <h3>{{error }}</h3>
+
+ <div class="h1"> SALON REGISTRATION </div>
+<div class="salonregistration">
+
+<form action="/register" method="post" autocomplete="off" autofocus="off">
+    <input name="salonname" placeholder="SALON NAME" type="text"> <br>
+            <input name="username"  placeholder="USERNAME" type="text"> <br>
+         <input name="password" placeholder="PASSWORD" type="password"> <br>
+          <input name="confirmation" placeholder="PASSWORD AGAIN" type="password"> <br>
+          </div>
+
+   <div class="address">
+    <h2> Address </h2>
+
+      <select name="city">
+       <option disabled selected value>city</option>
+       <option value="Trichy"> TRICHY </option>
+       <option value="Thuraiyur">THURAIYUR</option>
+       <option value="coimbatore">COIMBATORE</option>
+       <option vslue="perambalur">PERAMBALUR</option> <br>
+      <input name="address"  placeholder="doorno,Street" type="text"> <br>
+                 <button type="submit"> SUBMIT </button>
+                 </div>
+
+</form>
+</div>
+
+{% endblock %}

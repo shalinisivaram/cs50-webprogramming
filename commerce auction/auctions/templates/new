@@ -1,0 +1,43 @@
+owner = models.CharField(max_length=64)
+    title = models.CharField(max_length=64)
+    description = models.CharField(max_length=64)
+    bid = models.IntegerField()
+    category = models.CharField(max_length=64)
+
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+        <h2> ACTIVE LISTINGS</h2>
+        
+        <!-- Grid row -->
+        <div class="row d-flex justify-content-center">
+            <!-- Grid column -->
+        <div class="col-xl-7 pb-2">
+        {% if empty %}
+            <h3>No Active Listings available</h3>
+        {% else %}
+        {% for product in products%}
+            <br>
+                        
+            <div class="card card-cascade" >
+            <div class="view view-cascade overlay " >
+             <a>
+            <div class="mask rgba-white-slight"></div>
+             </a>
+            </div>
+                            
+            <div class="card-body card-body-cascade text-center">
+            <h4 class="card-title"><strong>{{product.title}}</strong></h4>
+            <h6 class="font-weight-bold indigo-text py-2">{{product.category}}</h6>
+            <p class="lead">Seller : {{product.owner}} <br> </p>
+            <p class="">{{product.description}} <br> </p>
+            <p class="font-weight-bold">{{product.bid}}$ <br> </p>
+            <a href="{% url 'viewlist' product.id %}" class="btn btn-primary">View</a>
+            </div>
+             </div>
+            {% endfor %}
+            {% endif %}
+            </div>
+        </div>
+{% endblock %}

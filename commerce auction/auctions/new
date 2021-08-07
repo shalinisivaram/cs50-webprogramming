@@ -1,0 +1,22 @@
+if request.method == "POST":
+        item = auctions.models.Listings()
+        item.owner = request.user.username()
+        item.title = request.POST["title"]
+        item.description = request.POST["description"]
+        item.bid = request.POST["bid"]
+        item.categories = request.POST["categories"]
+        if request.POST.get["image_url"]:
+            item.image_url = request.POST["image_url"]
+
+        products = auctions.models.Listings.objects.all()
+        if len(products) == 0:
+            return render(request,"auctions/index.html",{
+                'message':'No listing added'
+            })
+        else:
+            return render(request,"auctions/index.html",{
+                'products':products
+            })
+
+
+    return render(request,"auctions/newlist.html")

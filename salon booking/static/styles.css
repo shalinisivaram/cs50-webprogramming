@@ -1,0 +1,199 @@
+body
+{
+    background-color:#f5f5f5;
+    width:600px;
+}
+
+.register
+{
+    text-align:right;
+    color:black;
+    font-size:20px;
+    position:relative;
+    top:-800px;
+    left:600px;
+
+}
+
+
+.h1
+{
+    position:relative;
+    bottom:600px;
+    right:-700px;
+    font-size:35px;
+    font-family:Times, "Times New Roman", serif;
+    padding-bottom:10px;
+    border-bottom:5px solid #e076ad;
+
+}
+
+p:hover
+{
+    text-decoration:underline;
+    text-decoration-color:#e076ad;
+}
+
+.salonregistration
+{
+    position:relative;
+    bottom:600px;
+    right:-800px;
+    line-height:40px;
+}
+
+h3
+{
+    position:relative;
+    bottom:600px;
+    right:-700px;
+    font-size:35px;
+    font-family:Times, "Times New Roman", serif;
+    color:red;
+
+}
+
+.location
+{
+    position:relative;
+    bottom:600px;
+    left:800px;
+    font-size:35px;
+}
+.city
+{
+    position:relative;
+    bottom:500px;
+    left:800px;
+    font-size: 20px;
+}
+
+select
+{
+    width:220px;
+    margin:10px;
+    height:50px;
+    color:black;
+    font-size:30px;
+    background-color: #e076ad;
+}
+
+.address
+{
+    position:relative;
+    bottom:600px;
+    right:-800px;
+    line-height:40px;
+    font-size:25px;
+}
+
+.gender
+{
+    position:relative;
+    bottom:500px;
+    left:800px;
+    font-size:35px;
+}
+
+.multipleSelection {
+            width: 300px;
+            position:relative;
+            bottom:450px;
+            left:800px;
+        }
+
+        .selectBox {
+            position: relative;
+        }
+
+        .selectBox select {
+            width: 100%;
+
+        }
+
+        .overSelect {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        #checkboxes {
+            display: none;
+        }
+
+        #checkboxes label {
+            display: block;
+            font-size:25px;
+        }
+
+        #checkboxes label:hover {
+            background-color: #e076ad;
+        }
+
+.date
+{
+    position:relative;
+    top:30px;
+    width:100%;
+    font-size:20px;
+    top:-450px;
+    left:800px;
+
+}
+
+p
+{
+    color:#e076ad;
+    font-size:20px;
+}
+
+.time
+{
+    position:relative;
+    top:30px;
+     margin-left: 10px;
+    font-size:20px;
+    line-height:30px;
+    top:-450px;
+    left:800px;
+
+}
+
+.customerinfo
+{
+    position:relative;
+    top:-400px;
+    left:800px;
+    height:400px;
+    font-size:20px;
+    line-height:30px;
+}
+
+.success
+{
+    position:relative;
+    top:-500px;
+    left:700px;
+}
+
+.appoinment{
+    font-family: arial, sans-serif;
+    position:relative;
+    top: -550px;
+    left:700px;
+    width:50%;
+    border-collapse: collapse;
+
+}
+
+td, th {
+  border: 1px solid #e076ad;
+  text-align: left;
+  padding: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: #e076ad;
+}

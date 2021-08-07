@@ -1,0 +1,41 @@
+
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+        
+        <h2> WATCH LIST</h2>
+        
+
+        <div class="row d-flex justify-content-center">
+        
+        <div class="col-xl-7 pb-2">
+       
+        {% for listing in watchlist%}
+            <br>
+                        
+            <div class="card card-cascade" >
+            <div class="view view-cascade overlay " >
+            <img class="card-img-top" src="{{listing.listing.image.url}}" alt="image" style="height: 200px;">
+             <a>
+            <div class="mask rgba-white-slight"></div>
+             </a>
+            </div>
+                            
+            <div class="card-body card-body-cascade text-center">
+            <h4 class="card-title"><strong>{{listing.listing.title}}</strong></h4>
+            <h6 class="font-weight-bold indigo-text py-2">{{listing.listing.category}}</h6>
+            <p class="lead">Seller : {{listing.listing.owner}} <br> </p>
+            <p class="">{{listing.listing.description}} <br> </p>
+            <p class="font-weight-bold">{{listing.listing.bid}}$ <br> </p>
+            <p class="lead">Created at : {{listing.listing.time}} <br> </p>
+
+            <a href="{% url 'view_listing' listing.listing.id%}" class="btn btn-primary">View</a>
+            </div>
+             </div>
+            {% endfor %}
+
+            </div>
+        </div>
+
+{% endblock %}

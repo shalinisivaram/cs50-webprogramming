@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3> {{error}} </h3>
+<div class="h1"> LOGIN </h1> </div>
+<div class="salonregistration">
+
+
+<form action="/login" method="post" autocomplete ="off" autofocus="off">
+    <input name="username" placeholder="USERNAME" type="text"> <br>
+    <input name="password" placeholder="password" type="password" id="show"> <br>
+    <input type = 'checkbox' onclick="showpass()"> Show password <br>
+    <button type="submit"> LOGIN </button>
+</form>
+</div>
+
+<script>
+    function showpass()
+    {
+        var a = document.getElementById("show") ;
+        if(a.type === "password")
+        {
+            a.type = "text";
+        }
+        else
+        {
+            a.type = "password";
+        }
+    }
+</script>
+
+
+{% endblock %}
